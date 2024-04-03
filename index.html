@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USD/KES Forex Analsis </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/9b7e41571c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#services">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <h1>Welcome to <span>USD/KES</span><br> Analysis</h1>
+        </div>
+    </div>
+</div>
+<!-- /* about*/ -->
+
+
+<!-- -----------Services----------->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My work</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Chart</h2>
+                <p></p>
+                <a href="https://chart-6tcl.onrender.com">See More</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-sack-dollar"></i>
+                <h2>Currency Prediction and Analsis</h2>
+                <p></p>
+                <a href="https://mainly.onrender.com">See More</a>
+            </div>
+            <div>
+                <i class="fa-regular fa-newspaper"></i>
+                <h2>News</h2>
+                <p></p>
+                <a href="https://sentiment-jjg2.onrender.com">See More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- -------------Contacts--------- -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>benmwangi968@gmail.com</p>
+                <p><i class="fa-solid fa-square-phone"></i>0746779918</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/s.gerrera/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com/ShadowSageCode"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://github.com/Kabuddy768"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ben-mwangi-a3b75b278/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="Resume English.docx" download="" class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet" >
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="text" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright @ Ben-Isaac. Made in 2024</p>
+    </div>
+</div>
+<script>
+    var tablinks = document.getElementsByClassName("tab-links"); 
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link")
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwk9LX8GVJxftuFugWNn2k4UkPuPjSLk-C7I28hjR2xrD0ZD9l7wkpx651xedL4qhs/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML ="Message Sent Successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            }, 5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
